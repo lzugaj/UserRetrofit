@@ -40,10 +40,15 @@
 
     <style name="BtnCreateUpdateStyle.BtnStyle" parent="BtnStyle">
         <item name="android:text">@string/btn_create_update</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:layout_marginRight">@dimen/margin_right</item>
     </style>
 
     <style name="BtnDeleteStyle.BtnStyle" parent="BtnStyle">
         <item name="android:text">@string/btn_delete</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="RvStyle">
@@ -56,6 +61,14 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+
+    <style name="BtnInfoStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/btn_info</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
 </resources>
