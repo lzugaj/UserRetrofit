@@ -8,4 +8,54 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="EtStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="EtIdStyle.EtStyle" parent="EtStyle">
+        <item name="android:enabled">false</item>
+    </style>
+
+    <style name="EtFirstNameStyle.EtStyle" parent="EtStyle">
+        <item name="android:hint">@string/enter_firstName</item>
+    </style>
+
+    <style name="EtLastNameStyle.EtStyle" parent="EtStyle">
+        <item name="android:hint">@string/enter_lastName</item>
+    </style>
+
+    <style name="LLBtnStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="BtnStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:enabled">false</item>
+    </style>
+
+    <style name="BtnCreateUpdateStyle.BtnStyle" parent="BtnStyle">
+        <item name="android:text">@string/btn_create_update</item>
+    </style>
+
+    <style name="BtnDeleteStyle.BtnStyle" parent="BtnStyle">
+        <item name="android:text">@string/btn_delete</item>
+    </style>
+
+    <style name="RvStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TvStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+
 </resources>

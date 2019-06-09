@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">UserRetrofit</string>
+    <string name="enter_firstName">First name</string>
+    <string name="enter_lastName">Last name</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_create_update">Create / Update</string>
 </resources>
