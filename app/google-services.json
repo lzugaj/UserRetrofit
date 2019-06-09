@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "233503430234",
+    "firebase_url": "https://userretrofit.firebaseio.com",
+    "project_id": "userretrofit",
+    "storage_bucket": "userretrofit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233503430234:android:861b8010fe2eb7ce",
+        "android_client_info": {
+          "package_name": "com.luv2code.android.userretrofit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233503430234-uf65bs8hlqtgil8i0bftaofb33m08qrm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW8muYLsN4th6P0g2oLFPr804Wn9u2E5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233503430234-uf65bs8hlqtgil8i0bftaofb33m08qrm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
