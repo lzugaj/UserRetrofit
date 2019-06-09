@@ -7,6 +7,9 @@
     android:orientation="vertical"
     android:padding="@dimen/padding">
 
+    <Button android:id="@+id/btnInfo"
+        style="@style/BtnInfoStyle"/>
+
     <EditText android:id="@+id/etId"
         style="@style/EtIdStyle.EtStyle"/>
 
