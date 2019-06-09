@@ -3,4 +3,8 @@
     <dimen name="padding">16dp</dimen>
     <dimen name="radius">5dp</dimen>
     <dimen name="margin_right">5dp</dimen>
+    <dimen name="margin_bottom">10dp</dimen>
+    <dimen name="margin_top">15dp</dimen>
+    <dimen name="ivSize">30dp</dimen>
+    <dimen name="margin_left">30dp</dimen>
 </resources>
