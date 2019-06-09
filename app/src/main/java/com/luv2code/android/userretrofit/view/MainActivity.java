@@ -138,10 +138,7 @@ public class MainActivity extends AppCompatActivity implements UserActionListene
     public void btnCreateUpdate() {
         User user = selectedUser;
         if (user == null) {
-            user = new User(
-                    etFirstName.getText().toString().trim(),
-                    etLastName.getText().toString().trim()
-            );
+            user = new User(etFirstName.getText().toString().trim(), etLastName.getText().toString().trim());
         } else {
             user.setFirstName(etFirstName.getText().toString().trim());
             user.setLastName(etLastName.getText().toString().trim());

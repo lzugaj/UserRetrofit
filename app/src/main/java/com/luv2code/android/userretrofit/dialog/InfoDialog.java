@@ -22,7 +22,6 @@ public class InfoDialog extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(getString(R.string.dialog_title));
         builder.setMessage(getString(R.string.dialog_message));
-
         builder.setPositiveButton(getString(R.string.btn_cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

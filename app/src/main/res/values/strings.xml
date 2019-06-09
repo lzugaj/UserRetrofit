@@ -7,7 +7,7 @@
     <string name="btn_info">Info</string>
     <string name="btn_cancel">Cancel</string>
     <string name="dialog_title">Info Dialog</string>
-    <string name="dialog_message">Click on every item in Recycler View will open new Dialog which will ask you do you want do delete that particular item from list. Long click on item from Recycler View will automatically delete item from list.</string>
+    <string name="dialog_message">Long click on item from Recycler View will automatically delete item from list. Also, you can update and delete every item by clicking on ImageViews next to user name.</string>
     <string name="delete_dialog_title">Delete Dialog</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>

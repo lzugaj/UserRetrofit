@@ -33,20 +33,17 @@ public class DeleteDialog extends DialogFragment {
 
     private User user;
 
-    private int userPosition;
-
     private UserService userService;
 
     private List<User> users;
 
     private UserAdapter userAdapter;
 
-    public DeleteDialog(User user, int position) {
+    public DeleteDialog(User user) {
         this.user = user;
-        this.userPosition = position;
-        userService = RetrofitClient.getRetrofit().create(UserService.class);
-        users = new ArrayList<>();
-        userAdapter = new UserAdapter(getActivity(), users, (UserActionListener) this.getActivity());
+        this.userService = RetrofitClient.getRetrofit().create(UserService.class);
+        this.users = new ArrayList<>();
+        this.userAdapter = new UserAdapter(getActivity(), users, (UserActionListener) this.getActivity());
     }
 
     @NonNull
@@ -55,6 +52,7 @@ public class DeleteDialog extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(getString(R.string.delete_dialog_title));
         builder.setMessage(getString(R.string.delete_dialog_message) + user.toString());
+
         builder.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -77,9 +75,6 @@ public class DeleteDialog extends DialogFragment {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                 users.remove(user);
-                userAdapter.notifyDataSetChanged();
-                users.remove(user);
-                userAdapter.notifyItemRemoved(userPosition);
                 userAdapter.notifyDataSetChanged();
                 dismiss();
             }

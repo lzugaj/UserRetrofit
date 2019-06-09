@@ -14,4 +14,6 @@ public class AppConstants {
 
     public static final String DELETE_DIALOG = "DeleteDialog";
 
+    public static final String WARNING_DIALOG = "WarningDialog";
+
 }
