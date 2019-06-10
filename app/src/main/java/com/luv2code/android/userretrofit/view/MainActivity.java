@@ -24,6 +24,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -70,24 +71,25 @@ public class MainActivity extends AppCompatActivity implements UserActionListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         init();
         setUpUsers();
     }
 
     private void init() {
-        ButterKnife.bind(this);
+        users = new ArrayList<>();
         userService = RetrofitClient.getRetrofit().create(UserService.class);
         rvUsers.setHasFixedSize(true);
         rvUsers.setLayoutManager(new LinearLayoutManager(this));
-        users = new ArrayList<>();
-        sortData();
+
+        sortUsers(users);
         userAdapter = new UserAdapter(this, users, this);
         rvUsers.setAdapter(userAdapter);
     }
 
-    private void sortData() {
-        Collections.sort(users, new Comparator<User>() {
+    private void sortUsers(List<User> userList) {
+        Collections.sort(userList, new Comparator<User>() {
             @Override
             public int compare(User user1, User user2) {
                 if (user1.getLastName().equals(user2.getLastName())) {
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements UserActionListene
                 users.clear();
                 users.addAll(response.body().values());
                 userAdapter.notifyDataSetChanged();
-                sortData();
+                sortUsers(users);
             }
 
             @Override
@@ -153,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements UserActionListene
                 }
 
                 userAdapter.notifyDataSetChanged();
-                sortData();
+                sortUsers(users);
                 clearForm();
             }
 
@@ -171,7 +173,6 @@ public class MainActivity extends AppCompatActivity implements UserActionListene
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                 users.remove(selectedUser);
                 userAdapter.notifyDataSetChanged();
-                sortData();
                 clearForm();
             }
 
@@ -196,5 +197,22 @@ public class MainActivity extends AppCompatActivity implements UserActionListene
         etId.setText(selectedUser.getId());
         etFirstName.setText(selectedUser.getFirstName());
         etLastName.setText(selectedUser.getLastName());
+    }
+
+    @Override
+    public void deleteUser(int userPosition) {
+        users.remove(userPosition);
+        userAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void updateUser(User user) {
+        if (!users.contains(user)) {
+            users.add(user);
+        }
+
+        sortUsers(users);
+        Utils.hideKeyboard(this);
+        userAdapter.notifyDataSetChanged();
     }
 }

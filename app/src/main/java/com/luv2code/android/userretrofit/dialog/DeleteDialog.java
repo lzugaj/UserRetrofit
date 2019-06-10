@@ -11,14 +11,10 @@ import android.support.v4.app.DialogFragment;
 import android.widget.Toast;
 
 import com.luv2code.android.userretrofit.R;
-import com.luv2code.android.userretrofit.adapter.UserAdapter;
 import com.luv2code.android.userretrofit.connection.RetrofitClient;
 import com.luv2code.android.userretrofit.listener.UserActionListener;
 import com.luv2code.android.userretrofit.model.User;
 import com.luv2code.android.userretrofit.service.UserService;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,17 +29,17 @@ public class DeleteDialog extends DialogFragment {
 
     private User user;
 
+    private int userPosition;
+
+    private UserActionListener listener;
+
     private UserService userService;
 
-    private List<User> users;
-
-    private UserAdapter userAdapter;
-
-    public DeleteDialog(User user) {
+    public DeleteDialog(User user, int position, UserActionListener actionListener) {
         this.user = user;
+        this.userPosition = position;
+        this.listener = actionListener;
         this.userService = RetrofitClient.getRetrofit().create(UserService.class);
-        this.users = new ArrayList<>();
-        this.userAdapter = new UserAdapter(getActivity(), users, (UserActionListener) this.getActivity());
     }
 
     @NonNull
@@ -52,7 +48,6 @@ public class DeleteDialog extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(getString(R.string.delete_dialog_title));
         builder.setMessage(getString(R.string.delete_dialog_message) + user.toString());
-
         builder.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -74,9 +69,7 @@ public class DeleteDialog extends DialogFragment {
         userService.delete(user.getId()).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
-                users.remove(user);
-                userAdapter.notifyDataSetChanged();
-                dismiss();
+                listener.deleteUser(userPosition);
             }
 
             @Override

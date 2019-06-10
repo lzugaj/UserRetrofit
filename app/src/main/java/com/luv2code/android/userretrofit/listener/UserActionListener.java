@@ -10,4 +10,8 @@ public interface UserActionListener {
 
     void selectUser(User user);
 
+    void deleteUser(int userPosition);
+
+    void updateUser(User user);
+
 }
