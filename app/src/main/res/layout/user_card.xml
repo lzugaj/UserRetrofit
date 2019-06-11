@@ -5,11 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardUseCompatPadding="true"
-    app:cardBackgroundColor="@android:color/holo_green_dark"
+    app:cardBackgroundColor="@android:color/holo_orange_dark"
     app:cardCornerRadius="@dimen/radius">
 
     <TextView android:id="@+id/tvUser"
         style="@style/TvStyle"
         tools:text="Luka Žugaj"/>
+
+    <ImageView android:id="@+id/ivDelete"
+        style="@style/IvDeleteStyle"/>
+
+    <ImageView android:id="@+id/ivUpdate"
+        style="@style/IvUpdateStyle"/>
 
 </android.support.v7.widget.CardView>

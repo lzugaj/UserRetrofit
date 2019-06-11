@@ -5,4 +5,15 @@
     <string name="btn_delete">Delete</string>
     <string name="btn_create_update">Create / Update</string>
     <string name="btn_info">Info</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="dialog_title">Info Dialog</string>
+    <string name="dialog_message">Long click on item from Recycler View will automatically delete item from list. Also, you can update and delete every item by clicking on ImageViews next to user name.</string>
+    <string name="delete_dialog_title">Delete Dialog</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="delete_dialog_message">Are you sure you want to delete user: </string>
+    <string name="btn_update">Update</string>
+    <string name="update">Update</string>
+    <string name="update_dialog_title">Update Dialog</string>
+    <string name="update_dialog_message">Updating user:</string>
 </resources>

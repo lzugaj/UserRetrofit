@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="padding">16dp</dimen>
-    <dimen name="radius">5dp</dimen>
+    <dimen name="radius">10dp</dimen>
     <dimen name="margin_right">5dp</dimen>
+    <dimen name="margin_bottom">10dp</dimen>
+    <dimen name="margin_top">15dp</dimen>
+    <dimen name="ivSize">40dp</dimen>
+    <dimen name="margin_left">40dp</dimen>
 </resources>
