@@ -6,8 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.support.v7.widget.SearchView;
 import android.widget.Toast;
 
 import com.luv2code.android.userretrofit.R;
@@ -35,7 +38,7 @@ import retrofit2.Response;
 
 import static com.luv2code.android.userretrofit.utils.AppConstants.INFO_DIALOG;
 
-public class MainActivity extends AppCompatActivity implements UserActionListener {
+public class MainActivity extends AppCompatActivity implements UserActionListener, SearchView.OnQueryTextListener {
 
     @BindView(R.id.etId)
     EditText etId;
@@ -213,5 +216,34 @@ public class MainActivity extends AppCompatActivity implements UserActionListene
         sortUsers(users);
         Utils.hideKeyboard(this);
         userAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search_menu, menu);
+        MenuItem menuItem = menu.findItem(R.id.search_action);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setOnQueryTextListener(this);
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        String userInput = newText.toLowerCase();
+        List<User> searchingUsers = new ArrayList<>();
+        for (User user : users) {
+            if ((user.getFirstName().toLowerCase().contains(userInput.toLowerCase())) ||
+                    (user.getLastName().toLowerCase().contains(userInput.toLowerCase()))) {
+                searchingUsers.add(user);
+            }
+        }
+
+        userAdapter.searchUserList(searchingUsers);
+        return true;
     }
 }
