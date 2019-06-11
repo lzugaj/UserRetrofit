@@ -21,6 +21,7 @@ import com.luv2code.android.userretrofit.model.User;
 import com.luv2code.android.userretrofit.service.UserService;
 import com.luv2code.android.userretrofit.view.MainActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -115,6 +116,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     @Override
     public int getItemCount() {
         return users.size();
+    }
+
+    public void searchUserList(List<User> searchedUsers) {
+        users = new ArrayList<>();
+        users.addAll(searchedUsers);
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
